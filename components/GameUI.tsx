@@ -100,7 +100,7 @@ const GameUI: React.FC = () => {
 
   // 4. THE UI: Clean, "Vibe" based rendering
 if (!role) return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-8 bg-slate-900 text-white">
+    <div className="flex flex-col items-center justify-center h-screen space-y-8 bg-yellow-50 text-blue-500">
       <h1 className="text-3xl font-bold">⊱ ✧Let's go｡𖦹°‧</h1>
 
       {/* --- PASTE THIS BLOCK HERE --- */}
@@ -111,7 +111,7 @@ if (!role) return (
             navigator.clipboard.writeText(window.location.href);
             alert("Link copied! Send it to your partner.");
           }}
-          className="flex items-center gap-2 bg-slate-800 border border-slate-700 hover:border-indigo-500 px-4 py-2 rounded-full transition-all text-sm text-indigo-300"
+          className="flex items-center gap-2 bg-slate-800 border border-slate-700 hover:border-orange-500 px-4 py-2 rounded-full transition-all text-sm text-indigo-300"
         >
           <span>Copy Invite Link</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
@@ -120,8 +120,8 @@ if (!role) return (
       {/* ----------------------------- */}
 
       <div className="flex gap-4">
-        <button onClick={() => setRole("A")} className="px-8 py-4 bg-indigo-600 rounded-xl font-bold text-xl hover:scale-105 transition">Partner A</button>
-        <button onClick={() => setRole("B")} className="px-8 py-4 bg-fuchsia-600 rounded-xl font-bold text-xl hover:scale-105 transition">Partner B</button>
+        <button onClick={() => setRole("A")} className="px-8 py-4 bg-blue-800 text-white rounded-xl font-bold text-xl hover:scale-105 transition shadow-lg">Partner A</button>
+        <button onClick={() => setRole("B")} className="px-8 py-4 bg-red-800 text-white rounded-xl font-bold text-xl hover:scale-105 transition shadow-lg">Partner B</button>
       </div>
     </div>
   );
@@ -144,7 +144,7 @@ if (!role) return (
     <div className="min-h-screen bg-slate-900 text-slate-100 p-6 flex flex-col items-center max-w-md mx-auto">
       {debugView} 
       {/* HEADER: Dice & Category */}
-      <div className="w-full bg-slate-800 p-6 rounded-3xl mb-6 text-center border border-slate-700">
+      <div className="w-full bg-sky-200 p-6 rounded-3xl mb-6 text-center border border-sky-500">
         <div className="text-slate-400 text-sm uppercase tracking-widest font-bold mb-2">
           {gameState.category || "Ready to Start"}
         </div>
@@ -154,7 +154,7 @@ if (!role) return (
         <button 
           onClick={handleRoll} 
           disabled={loading}
-          className="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-full text-sm font-bold transition"
+          className="bg-cyan-700 hover:bg-cyan-600 px-4 py-2 rounded-full text-sm font-bold transition"
         >
           {loading ? "Fetching..." : "Roll Dice"}
         </button>
@@ -173,18 +173,18 @@ if (!role) return (
           {!amIFinished && !bothFinished && (
             <div className="space-y-4">
               <textarea 
-                className="w-full bg-slate-800 border border-slate-600 rounded-2xl p-4 text-lg focus:outline-none focus:border-indigo-500 h-32"
+                className="w-full bg-yellow-400 border border-yellow-300 rounded-2xl p-4 text-lg focus:outline-none focus:border-indigo-500 h-32"
                 placeholder="Type your answer..."
                 value={myInput}
                 onChange={(e) => setMyInput(e.target.value)}
               />
               <button 
                 onClick={handleSubmit}
-                className={`w-full py-4 rounded-xl font-bold text-lg transition ${
-                  role === 'A' ? 'bg-indigo-600 hover:bg-indigo-500' : 'bg-fuchsia-600 hover:bg-fuchsia-500'
+                className={`w-full py-4 rounded-xl font-bold text-lg text-white transition ${
+                  role === 'A' ? 'bg-blue-600 hover:bg-blue-500' : 'bg-red-600 hover:bg-red-500'
                 }`}
               >
-                Lock Answer 🔒
+                Lock Answer 
               </button>
             </div>
           )}
