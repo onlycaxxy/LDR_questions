@@ -101,7 +101,7 @@ const GameUI: React.FC = () => {
   // 4. THE UI: Clean, "Vibe" based rendering
 if (!role) return (
     <div className="flex flex-col items-center justify-center h-screen space-y-8 bg-slate-900 text-white">
-      <h1 className="text-3xl font-bold">⊱ ✧let's go｡𖦹°‧</h1>
+      <h1 className="text-3xl font-bold">⊱ ✧Let's go｡𖦹°‧</h1>
 
       {/* --- PASTE THIS BLOCK HERE --- */}
       <div className="flex flex-col items-center gap-2">
@@ -133,7 +133,7 @@ if (!role) return (
   const isPartnerFinished = role === 'A' ? gameState.b_finished : gameState.a_finished;
   const bothFinished = gameState.a_finished && gameState.b_finished;
   const debugView = (
-    <div className="fixed top-0 left-0 bg-black/80 text-green-400 p-2 text-xs font-mono z-50 w-full">
+    <div className="fixed top-0 left-0 bg-black/80" text-green-400 p-2 text-xs font-mono z-50 w-full>
       DEBUG: 
       A_Fin: {gameState?.a_finished ? "TRUE" : "FALSE"} | 
       B_Fin: {gameState?.b_finished ? "TRUE" : "FALSE"} | 

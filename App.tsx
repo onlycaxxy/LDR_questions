@@ -8,7 +8,7 @@ import Header from './components/Header';
 const App: React.FC = () => {
   return (
     <HashRouter>
-      <div className="min-h-screen bg-slate-900 text-slate-100 selection:bg-indigo-500/30">
+      <div className="min-h-screen bg-slate-100 text-slate-900 selection:bg-indigo-500/30">
         <Header />
         <main className="container mx-auto px-4 py-8 max-w-4xl">
           <Routes>
