@@ -101,7 +101,7 @@ const GameUI: React.FC = () => {
   // 4. THE UI: Clean, "Vibe" based rendering
 if (!role) return (
     <div className="flex flex-col items-center justify-center h-screen space-y-8 bg-yellow-50 text-blue-500">
-      <h1 className="text-3xl font-bold">⊱ ✧Let's go｡𖦹°‧</h1>
+      <h1 className="text-9xl font-bold">⊱ ✧Let's go｡𖦹°‧</h1>
 
       {/* --- PASTE THIS BLOCK HERE --- */}
       <div className="flex flex-col items-center gap-2">
@@ -141,7 +141,7 @@ if (!role) return (
     </div>
   );
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 p-6 flex flex-col items-center max-w-md mx-auto">
+    <div className="min-h-screen bg-yellow-50 text-blue-500 p-6 flex flex-col items-center max-w-md mx-auto">
       {debugView} 
       {/* HEADER: Dice & Category */}
       <div className="w-full bg-sky-200 p-6 rounded-3xl mb-6 text-center border border-sky-500">
@@ -154,7 +154,7 @@ if (!role) return (
         <button 
           onClick={handleRoll} 
           disabled={loading}
-          className="bg-cyan-700 hover:bg-cyan-600 px-4 py-2 rounded-full text-sm font-bold transition"
+          className="bg-cyan-700 hover:bg-cyan-600 px-4 py-2 rounded-full text-white text-sm font-bold transition"
         >
           {loading ? "Fetching..." : "Roll Dice"}
         </button>
@@ -173,7 +173,7 @@ if (!role) return (
           {!amIFinished && !bothFinished && (
             <div className="space-y-4">
               <textarea 
-                className="w-full bg-yellow-400 border border-yellow-300 rounded-2xl p-4 text-lg focus:outline-none focus:border-indigo-500 h-32"
+                className="w-full bg-amber-200 border border-yellow-300 rounded-2xl p-4 text-lg focus:outline-none focus:border-indigo-500 h-32"
                 placeholder="Type your answer..."
                 value={myInput}
                 onChange={(e) => setMyInput(e.target.value)}
@@ -181,7 +181,7 @@ if (!role) return (
               <button 
                 onClick={handleSubmit}
                 className={`w-full py-4 rounded-xl font-bold text-lg text-white transition ${
-                  role === 'A' ? 'bg-blue-600 hover:bg-blue-500' : 'bg-red-600 hover:bg-red-500'
+                  role === 'A' ? 'bg-blue-500 hover:bg-blue-400' : 'bg-red-400 hover:bg-red-300'
                 }`}
               >
                 Lock Answer 
@@ -191,28 +191,26 @@ if (!role) return (
 
           {/* WAITING PHASE: I am done, waiting for partner */}
           {amIFinished && !bothFinished && (
-            <div className="p-8 bg-slate-800/50 rounded-3xl text-center border border-dashed border-slate-600 animate-pulse">
-              <h3 className="text-xl font-bold mb-2">Waiting for Partner...</h3>
-              <p className="text-slate-400 text-sm">You are locked in. The reveal happens when they finish.</p>
+            <div className="p-8 bg-amber-200/50 rounded-3xl text-center border border-dashed border-yellow-300 animate-pulse">
+              <h3 className="text-white-xl font-bold mb-2">Waiting for Partner...</h3>
+              <p className="text-slate-600 text-sm">You are locked in. The reveal happens when they finish.</p>
             </div>
           )}
 
           {/* REVEAL PHASE: Both are done */}
           {bothFinished && (
             <div className="space-y-4 animate-in zoom-in-95 duration-500">
-              <div className="bg-indigo-900/30 border border-indigo-500/30 p-6 rounded-2xl">
-                <div className="text-xs font-bold uppercase text-indigo-400 mb-2">Partner A said:</div>
+              <div className="bg-blue-900/30 border border-blue-500/30 p-6 rounded-2xl">
+                <div className="text-xs font-bold uppercase text-blue-400 mb-2">Partner A said:</div>
                 <div className="text-lg italic">"{gameState.a_answer}"</div>
               </div>
 
-              <div className="bg-fuchsia-900/30 border border-fuchsia-500/30 p-6 rounded-2xl">
-                <div className="text-xs font-bold uppercase text-fuchsia-400 mb-2">Partner B said:</div>
+              <div className="bg-red-900/30 border border-red-500/30 p-6 rounded-2xl">
+                <div className="text-xs font-bold uppercase text-red-400 mb-2">Partner B said:</div>
                 <div className="text-lg italic">"{gameState.b_answer}"</div>
               </div>
               
-              <div className="text-center pt-4 text-slate-500 text-sm">
-                discuss & roll again
-              </div>
+            
             </div>
           )}
         </div>
